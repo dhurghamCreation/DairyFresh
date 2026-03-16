@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DairyFresh Spring Brochure</title>
+  <style>
+    :root {
+      --green-900: #065f46;
+      --green-700: #047857;
+      --green-500: #10b981;
+      --sky-500: #0ea5e9;
+      --rose-500: #f43f5e;
+      --amber-500: #f59e0b;
+      --slate-900: #0f172a;
+      --slate-600: #475569;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at 15% 15%, #dff6ff 0, #f6fffb 36%, #f8fafc 100%);
+      color: var(--slate-900);
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 24px auto 48px;
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid #dbeafe;
+      box-shadow: 0 24px 60px rgba(2, 132, 199, 0.14);
+    }
+
+    .hero {
+      position: relative;
+      background: linear-gradient(128deg, #38bdf8 0%, #22c55e 45%, #facc15 100%);
+      padding: 42px;
+      color: white;
+      isolation: isolate;
+    }
+
+    .hero:before,
+    .hero:after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .hero:before {
+      width: 240px;
+      height: 240px;
+      background: #fff;
+      right: -60px;
+      top: -60px;
+    }
+
+    .hero:after {
+      width: 180px;
+      height: 180px;
+      background: #0f766e;
+      left: -20px;
+      bottom: -80px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 18px 0 0;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      text-shadow: 0 10px 26px rgba(8, 47, 73, 0.35);
+    }
+
+    .hero p {
+      margin-top: 18px;
+      max-width: 720px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .tag-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .content {
+      padding: 28px 30px 34px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 24px;
+      color: var(--green-900);
+    }
+
+    .deal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .deal {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #dbeafe;
+      background: white;
+      box-shadow: 0 8px 24px rgba(2, 132, 199, 0.1);
+      display: grid;
+      grid-template-rows: 120px 1fr;
+    }
+
+    .deal-top {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      padding: 12px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .milk { background: linear-gradient(135deg, #0284c7, #06b6d4); }
+    .cheese { background: linear-gradient(135deg, #f59e0b, #f97316); }
+    .yogurt { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+    .ice { background: linear-gradient(135deg, #22c55e, #10b981); }
+
+    .save-pill {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .deal-body {
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .deal-body h3 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .deal-body p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--slate-600);
+    }
+
+    .price-row {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--green-700);
+    }
+
+    .old {
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .footer-panel {
+      margin-top: 12px;
+      border-radius: 16px;
+      border: 1px solid #cbd5e1;
+      padding: 16px;
+      background: white;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 16px;
+    }
+
+    .qr {
+      border: 2px dashed #94a3b8;
+      border-radius: 12px;
+      height: 120px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 12px;
+      color: #475569;
+      padding: 8px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      background: #f8fafc;
+    }
+
+    .contact {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, var(--green-700), var(--green-500));
+      color: white;
+      box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+    }
+
+    .btn-outline {
+      border: 1px solid #0ea5e9;
+      color: #0369a1;
+      background: #f0f9ff;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        padding: 30px;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      .footer-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+
+      .page {
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+      }
+
+      .cta {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <section class="hero">
+      <div class="brand">DairyFresh Super Deals</div>
+      <h1>Spring Sale</h1>
+      <p>Fresh weekly offers on premium milk, cheese, yogurt, and family essentials. Limited-time deals while stocks last.</p>
+
+      <div class="tag-row">
+        <div class="tag">Nationwide Delivery</div>
+        <div class="tag">Click and Collect</div>
+        <div class="tag">Farm Fresh Daily</div>
+        <div class="tag">Member Savings</div>
+      </div>
+    </section>
+
+    <section class="content">
+      <h2 class="section-title">Featured Weekly Deals</h2>
+      <div class="deal-grid">
+        <article class="deal">
+          <div class="deal-top milk">
+            <span>Organic Milk Bundle</span>
+            <span class="save-pill">Save 18%</span>
+          </div>
+          <div class="deal-body">
+            <h3>2L x 3 Pack</h3>
+            <p>Whole, low-fat, and lactose-free options available.</p>
+            <div class="price-row">
+              <span class="price">$8.99</span>
+              <span class="old">$10.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal">
+          <div class="deal-top cheese">
+            <span>Chef Cheese Collection</span>
+            <span class="save-pill">Save 22%</span>
+          </div>
+          <div class="deal-body">
+            <h3>Cheddar + Gouda + Mozzarella</h3>
+            <p>Perfect for sandwiches, pasta, and party platters.</p>
+            <div class="price-row">
+              <span class="price">$12.49</span>
+              <span class="old">$15.99</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal">
+          <div class="deal-top yogurt">
+            <span>Greek Yogurt Family Pack</span>
+            <span class="save-pill">Save 15%</span>
+          </div>
+          <div class="deal-body">
+            <h3>8 Cups Assorted Flavors</h3>
+            <p>High-protein breakfast and snack combo.</p>
+            <div class="price-row">
+              <span class="price">$6.99</span>
+              <span class="old">$8.25</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="deal">
+          <div class="deal-top ice">
+            <span>Artisan Ice Cream Duo</span>
+            <span class="save-pill">Buy 1 Get 1 50%</span>
+          </div>
+          <div class="deal-body">
+            <h3>Vanilla Bean and Mango Swirl</h3>
+            <p>Small-batch frozen treats with natural ingredients.</p>
+            <div class="price-row">
+              <span class="price">$9.49</span>
+              <span class="old">$11.29</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="footer-panel">
+        <div>
+          <h3 style="margin:0 0 8px;color:#065f46;">Store and Contact Details</h3>
+          <div class="contact">
+            Phone: 1-800-DAIRY-01<br />
+            Email: hello@dairyfresh.com<br />
+            Address: 123 Dairy Lane, Fresh Valley, CA 90210<br />
+            Hours: Mon-Fri 8am-6pm, Sat 10am-4pm
+          </div>
+          <div class="cta">
+            <a class="btn btn-primary" href="javascript:window.print()">Print or Save PDF</a>
+            <a class="btn btn-outline" href="/">Back to Website</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 8px;color:#0369a1;">Scan and Shop</h3>
+          <div class="qr">
+            QR Placeholder<br />
+            Link to Nearby Store<br />
+            or Online Offers
+          </div>
+          <p style="font-size:12px;color:#64748b;margin-top:10px;line-height:1.6;">
+            This brochure is digitally optimized and print-ready. Prices and availability may vary by location.
+          </p>
+        </div>
+      </div>
+    </section>
+  </article>
+</body>
+</html>
