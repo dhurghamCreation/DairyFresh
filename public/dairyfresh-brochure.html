@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DairyFresh Spring Brochure</title>
   <style>
+   /* ==========================================
+   1. CONSTANTS & DEFINITIONS (Root Variables)
+   ========================================== */
     :root {
+      /* Brand color palette - using variables for consistency and easy updates */
       --green-900: #065f46;
       --green-700: #047857;
       --green-500: #10b981;
@@ -16,6 +20,9 @@
       --slate-600: #475569;
       --white: #ffffff;
     }
+    /* ==========================================
+   2. GLOBAL / BASE DECLARATIONS
+   ========================================== */
 
     * { box-sizing: border-box; }
 
@@ -25,6 +32,9 @@
       background: radial-gradient(circle at 15% 15%, #dff6ff 0, #f6fffb 36%, #f8fafc 100%);
       color: var(--slate-900);
     }
+    /* ==========================================
+   3. COMPONENT DECLARATIONS (Modules)
+   ========================================== */
 
     .page {
       max-width: 1100px;
@@ -37,10 +47,12 @@
     }
 
     .hero {
+      /* position: relative allows the :before/:after decorative circles to be positioned absolutely */
       position: relative;
       background: linear-gradient(128deg, #38bdf8 0%, #22c55e 45%, #facc15 100%);
       padding: 42px;
       color: white;
+      /* isolation: isolate ensures the z-index of background shapes doesn't bleed out of the hero */
       isolation: isolate;
     }
 
@@ -130,6 +142,7 @@
 
     .deal-grid {
       display: grid;
+      /* repeat(auto-fit) handles responsiveness automatically without multiple media queries */
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 14px;
       margin-bottom: 22px;
@@ -283,6 +296,9 @@
         grid-template-columns: 1fr;
       }
     }
+    /* ==========================================
+   4. PRINT & MEDIA DECLARATIONS
+   ========================================== */
 
     @media print {
       body {
